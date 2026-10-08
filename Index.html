@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Explorer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main class="container">
+    <header>
+      <h1>Currency Explorer</h1>
+      <p>Conversor de divisas en tiempo real</p>
+    </header>
+
+    <section class="converter-card">
+      <!-- Input de cantidad -->
+      <div class="form-group">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" value="1" min="0" step="any" placeholder="Ingresa un monto">
+      </div>
+
+      <!-- Contenedor de selectores -->
+      <div class="selectors-group">
+        <!-- Moneda Origen -->
+        <div class="form-group">
+          <label for="origen">De:</label>
+          <select id="origen">
+            <option value="EUR" selected>EUR - Euro</option>
+            <option value="USD">USD - Dólar Estadounidense</option>
+            <option value="MXN">MXN - Peso Mexicano</option>
+            <option value="GBP">GBP - Libra Esterlina</option>
+            <option value="JPY">JPY - Yen Japonés</option>
+            <option value="CAD">CAD - Dólar Canadiense</option>
+          </select>
+        </div>
+
+        <!-- Botón para intercambiar divisas -->
+        <button type="button" id="btn-intercambiar" title="Intercambiar divisas">⇄</button>
+
+        <!-- Moneda Destino -->
+        <div class="form-group">
+          <label for="destino">A:</label>
+          <select id="destino">
+            <option value="USD" selected>USD - Dólar Estadounidense</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="MXN">MXN - Peso Mexicano</option>
+            <option value="GBP">GBP - Libra Esterlina</option>
+            <option value="JPY">JPY - Yen Japonés</option>
+            <option value="CAD">CAD - Dólar Canadiense</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Botón de conversión -->
+      <button type="button" id="consultar">Convertir</button>
+
+      <!-- Zona de salida para los resultados o mensajes de error -->
+      <div class="resultado-container">
+        <p id="resultado">Esperando consulta...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/code.js"></script>
+</body>
+</html>
