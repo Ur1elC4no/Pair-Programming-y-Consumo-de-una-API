@@ -2,6 +2,7 @@
 // 1. REFERENCIAS AL DOM
 // ============================================
 const botonConsultar = document.querySelector("#consultar");
+const botonSwap = document.querySelector("#swap");
 const textoResultado = document.querySelector("#resultado");
 const inputCantidad = document.querySelector("#cantidad");
 const selectOrigen = document.querySelector("#origen");
@@ -14,22 +15,45 @@ if (botonConsultar) {
   botonConsultar.addEventListener("click", obtenerTipoCambio);
 }
 
+// Misión 06: Evento para intercambiar divisas
+if (botonSwap) {
+  botonSwap.addEventListener("click", intercambiarDivisas);
+}
+
 // ============================================
 // 3. FUNCIONES DE LA APLICACIÓN
 // ============================================
+
+/**
+ * Misión 06: Intercambia los valores de los selectores de origen y destino.
+ */
+function intercambiarDivisas() {
+  const temp = selectOrigen.value;
+  selectOrigen.value = selectDestino.value;
+  selectDestino.value = temp;
+}
+
+/**
+ * Consulta la API y calcula la conversión.
+ */
 async function obtenerTipoCambio() {
   const cantidad = Number(inputCantidad.value);
+
+  // Misión 07: Validación de entradas
+  if (isNaN(cantidad) || cantidad <= 0) {
+    textoResultado.textContent = "Por favor, ingresa una cantidad válida mayor a cero.";
+    return;
+  }
+
   const origen = selectOrigen.value.toLowerCase();
   const destino = selectDestino.value.toLowerCase();
 
-  // Misión 04: Construcción dinámica de la URL con template literals
   const url = `https://api.frankfurter.dev/v2/rate/${origen}/${destino}`;
 
   try {
     const respuesta = await fetch(url);
     const datos = await respuesta.json();
 
-    // Misión 05: Cálculo de la conversión y actualización del DOM
     const tasa = datos.rate;
     const conversion = cantidad * tasa;
 
