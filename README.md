@@ -2,7 +2,7 @@
 
 ## Integrantes
 - Leonardo Rodríguez Gutiérrez (Control: 23030391)
-- Uriel Cano
+- Oscar Uriel Montalvo Cano (Control: 22030755)
 
 ## Pair Programming
 ## Pair Programming
